@@ -1,0 +1,126 @@
+{
+  "openapi" : " 3.0.3 " ,
+  "informações" : {
+    "title" : " LH Games - Consumo " ,
+    "description" : " Documentação para consumo de Produtos " ,
+    "termsOfService" : " http://lhgames.com/v1/termos " ,
+    "versão" : " 1.0.2 " ,
+    "contato" : {
+      "email" : " api@lhgames.com "
+    }
+  },
+  "servidores" : [
+    {
+      "url" : " http://api.lhgames.com/v1 " ,
+      "description" : " Servidor de Produção "
+    },
+    {
+      "url" : " http://testes-api.lhgames.com " ,
+      "description" : " Servidor de testes de API "
+    }
+  ],
+  "caminhos" : {
+    "/produtos" : {
+      "pegar" : {
+        "etiquetas" : [
+          " Produtos "
+        ],
+        "summary" : " Retorno de Produtos. " ,
+        "description" : " A LH Games retorna via API os Produtos de seu APP. " ,
+        "respostas" : {
+          "200" : {
+            "descrição" : " OK " ,
+            "conteúdo" : {
+              "aplicativo/json" : {
+                "esquema" : {
+                  "tipo" : " objeto " ,
+                  "propriedades" : {
+                    "id" : {
+                      "tipo" : " inteiro " ,
+                      "formato" : " int64 " ,
+                      "exemplo" : 1
+                    },
+                    "nome" : {
+                      "tipo" : " string " ,
+                      "exemplo" : " Deus da Guerra "
+                    },
+                    "foto" : {
+                      "tipo" : " string " ,
+                      "exemplo" : " . \\ capa1.jpg "
+                    },
+                    "descrição" : {
+                      "tipo" : " string " ,
+                      "exemplo" : " aventura "
+                    },
+                    "preco" : {
+                      "tipo" : " número " ,
+                      "formato" : " flutuar " ,
+                      "exemplo" : 150
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : " API não encontrada "
+          },
+          "405" : {
+            "description" : " Consumo sem permissão "
+          }
+        }
+      },
+      "postar" : {
+        "etiquetas" : [
+          " Produtos "
+        ],
+        "summary" : " Adicionar novo produto " ,
+        "description" : " A LH Games recebe via API post os Produtos de seu APP. " ,
+        "pedidoCorpo" : {
+          "conteúdo" : {
+            "aplicativo/json" : {
+              "esquema" : {
+                "tipo" : " objeto " ,
+                "propriedades" : {
+                  "id" : {
+                    "tipo" : " inteiro " ,
+                    "formato" : " int64 " ,
+                    "exemplo" : 1
+                  },
+                  "nome" : {
+                    "tipo" : " string " ,
+                    "exemplo" : " Deus da Guerra "
+                  },
+                  "foto" : {
+                    "tipo" : " string " ,
+                    "exemplo" : " . \\ capa1.jpg "
+                  },
+                  "descrição" : {
+                    "tipo" : " string " ,
+                    "exemplo" : " aventura "
+                  },
+                  "preco" : {
+                    "tipo" : " número " ,
+                    "formato" : " flutuar " ,
+                    "exemplo" : 150
+                  }
+                }
+              }
+            }
+          }
+        },
+        "respostas" : {
+          "200" : {
+            "descrição" : " OK "
+          },
+          "404" : {
+            "description" : " API não encontrada "
+          },
+          "405" : {
+            "description" : " Não é permitido envio "
+          }
+        }
+      }
+    }
+  }
+}
